@@ -1,9 +1,7 @@
 import React from "react";
-import { AiFillEdit } from 'react-icons/ai';
-import { RiDeleteBin5Line } from 'react-icons/ri';
-import { assignedGiggerHeader } from "../../constants/tracking";
+import { assignedGiggerTrackingHeader } from "../../constants/tracking";
 
-const GiggerTrackingTable = ({ selectedGig }) => {
+const GiggerAssignedTrackingTable = ({ selectedGig }) => {
   // const [selectedGig.assigned, setassignedUser] = useState(selectedGig.assigned)
   return (
     <React.Fragment>
@@ -13,7 +11,7 @@ const GiggerTrackingTable = ({ selectedGig }) => {
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
             <tr>
               {
-                assignedGiggerHeader.map((item, index) => (
+                assignedGiggerTrackingHeader.map((item, index) => (
                   <th scope="col" key={index} className="px-6 py-3">
                     {item}
                   </th>
@@ -30,18 +28,14 @@ const GiggerTrackingTable = ({ selectedGig }) => {
                   </td>
                   <td className="px-6 py-4 flex items-center">
                     {user.name}
-                    <button>
-                      <AiFillEdit />
-                    </button>
                   </td>
                   <td className="px-6 py-4 ">
-                    Assigned
+                    Accepted
                   </td>
-                  <td className="px-6 py-4 items-center underline">
-                    <button>
-                      <RiDeleteBin5Line />
-                    </button>
+                  <td className="px-6 py-4 ">
+                    --
                   </td>
+
                 </tr>
               ))
             }
@@ -53,4 +47,4 @@ const GiggerTrackingTable = ({ selectedGig }) => {
   )
 }
 
-export default GiggerTrackingTable;
+export default GiggerAssignedTrackingTable;

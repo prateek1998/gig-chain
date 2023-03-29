@@ -11,6 +11,9 @@ const GigSchema = new Schema({
         type: String,
         required: true
     },
+    attendance: {
+        type: String
+    },
     location: {
         type: String
     },

@@ -22,6 +22,6 @@ export const bottomMenus = [
 ];
 
 export const linkMenu = [
-  { title: "Gig Allocation", icon: <FaRegBuilding size={"1.2rem"} />, url: 'allocation' },
-  { title: "Tracking", icon: <GrMapLocation size={"1.2rem"} />, url: 'track' },
+  { title: "Gig Allocation", icon: <FaRegBuilding size={"1.2rem"} />,  url: 'allocation' },
+  { title: "Tracking", icon: <GrMapLocation size={"1.2rem"} color="white" />,  url: 'track' },
 ]

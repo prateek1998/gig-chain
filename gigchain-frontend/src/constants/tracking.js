@@ -15,3 +15,18 @@ export const assignedGiggerHeader = [
     'Action',
     'Action Type'
 ]
+
+export const assignedActionType = [
+    'NA',
+    'Backup (Waitlist/ Secondary)',
+    'Primary',
+    'NA',
+]
+export const assignedGiggerTrackingHeader = [
+    'gigger Id',
+    'gigger Name',
+    'Allocation status',
+    'Completion Status',
+]
+
+

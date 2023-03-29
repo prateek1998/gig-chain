@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { giggerHeader } from "../../constants/allocation";
 import { assignUsersToGig } from "../../services/apiCalls";
-import Notify from '../react-toast';
+import Notify from "../toaster/react-toast";
 
 const GiggerSelectionTable = ({userData, gigData, filteredUser, handleSelected}) => {
     const [selectGig, setSelectGig] = useState(filteredUser);

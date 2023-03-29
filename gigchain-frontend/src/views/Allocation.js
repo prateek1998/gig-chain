@@ -112,16 +112,17 @@ const Allocation = () => {
                           {item.gigType}
                         </td>
                         <td className="px-6 py-4">
-                          {item.gigAttendance ? item.gigAttendance : '--'}
+                          {item.attendance ? item.attendance : '--'}
                         </td>
                         <td className="px-6 py-4">
                           {item.location ? item.location : '--'}
                         </td>
                         <td className="px-6 py-4">
                           <div className='flex items-center'>
-                            {item.assigned.length ? item.assigned.length : 0}
+                            {item.assigned ? item.assigned.length : 0}
                             <button onClick={() => {
                               setSelectedGig(item);
+                              setfilteredUser(item.assigned)
                               openAssignModal()
                             }}>
                               <GoLinkExternal color='blue' />

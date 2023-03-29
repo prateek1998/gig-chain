@@ -5,19 +5,38 @@ import { Link } from 'react-router-dom';
 import MyModal from '../components/modal/modal';
 import { getAllGigs } from '../services/apiCalls';
 import { tableHeader } from '../constants/tracking';
-import GiggerTrackingTable from '../components/gigger/giggerTrackingTable';
+import GiggerAssignedTrackingTable from '../components/tracking/GiggerAssignedTrackingTable';
+import GiggerAllocatedTrackingTable from '../components/tracking/GiggerAllocatedTrackingTable';
+import GoogleMapReact from 'google-map-react';
 
 const Tracking = () => {
   const [tableData, setTableData] = useState(null)
+  const [isGigAllocatedOpen, setIsGigAllocatedOpen] = useState(false);
+  const [isMapViewOpen, setIsMapViewOpen] = useState(false);
   const [isGigAssignOpen, setIsGigAssignOpen] = useState(false);
   const [selectedGig, setSelectedGig] = useState({})
-  
-  function closeAssignModal() {
+
+  function closeAllocatedModal() {
+    setIsGigAllocatedOpen(false)
+  }
+
+  function openAllocatedModal() {
+    setIsGigAllocatedOpen(true)
+  }
+
+  function closeAssignedModal() {
     setIsGigAssignOpen(false)
   }
 
-  function openAssignModal() {
+  function openAssignedModal() {
     setIsGigAssignOpen(true)
+  }
+
+  function openMapViewModal() {
+    setIsMapViewOpen(true);
+  }
+  function closeMapViewModal() {
+    setIsMapViewOpen(false);
   }
 
   useEffect(() => {
@@ -43,7 +62,7 @@ const Tracking = () => {
         <p className='text-2xl font-medium mr-5 '>
           Track Gigs to Completion
         </p>
-        <button className={`flex items-center border-gray-300 hover:text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm py-4 px-8 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none border dark:focus:ring-blue-800 text-white bg-blue-700 `}>
+        <button onClick={()=>openMapViewModal()} className={`flex items-center border-gray-300 hover:text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm py-4 px-8 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none border dark:focus:ring-blue-800 text-white bg-blue-700 `}>
           <div>
             <GoLocation />
           </div>
@@ -102,18 +121,22 @@ const Tracking = () => {
                         <div className='flex items-center'>
                           {item.assigned.length ? item.assigned.length : 0}
                           <button onClick={() => {
-                              setSelectedGig(item);
-                              openAssignModal()
-                            }}>
+                            setSelectedGig(item);
+                            openAllocatedModal()
+                          }}>
                             <GoLinkExternal color='blue' />
                           </button>
-                          
+
                         </div>
                       </td>
+
                       <td className="px-6 py-4">
                         <div className='flex items-center'>
                           {item.assigned.length ? item.assigned.length : 0}
-                          <button onClick={() => openAssignModal()}>
+                          <button onClick={() => {
+                            setSelectedGig(item);
+                            openAssignedModal()
+                          }}>
                             <GoLinkExternal color='blue' />
                           </button>
 
@@ -131,17 +154,52 @@ const Tracking = () => {
         }
       </div>
       <MyModal
-        open={isGigAssignOpen}
-        closeModal={closeAssignModal}
+        open={isGigAllocatedOpen}
+        closeModal={closeAllocatedModal}
         mode="add"
-        handleAdd={()=>{console.log("handle Add")}}
+        handleAdd={() => { console.log("handle Add") }}
         title={`Gigger assigned to Gig Id ${selectedGig.gigId}`}
         subTitle={'(Max 5 Giggers can be assigned)'}
       >
-        <GiggerTrackingTable
+        <GiggerAllocatedTrackingTable
           selectedGig={selectedGig}
         />
       </MyModal>
+
+      <MyModal
+        open={isGigAssignOpen}
+        closeModal={closeAssignedModal}
+        title={`Gigger assigned to Gig Id ${selectedGig.gigId}`}
+        subTitle={'(Max 5 Giggers can be assigned)'}
+      >
+        <GiggerAssignedTrackingTable
+          selectedGig={selectedGig}
+        />
+      </MyModal>
+
+      <MyModal
+        open={isGigAllocatedOpen}
+        closeModal={closeAllocatedModal}
+        mode="add"
+        handleAdd={() => { console.log("handle Add") }}
+        title={`Gigger assigned to Gig Id ${selectedGig.gigId}`}
+        subTitle={'(Max 5 Giggers can be assigned)'}
+      >
+        <GiggerAllocatedTrackingTable
+          selectedGig={selectedGig}
+        />
+      </MyModal>
+
+      
+      
+      <MyModal
+        open={isMapViewOpen}
+        closeModal={closeMapViewModal}
+        title={`Map View`}
+      >
+        <h2>hello </h2>
+      </MyModal>
+
     </React.Fragment>
   )
 }

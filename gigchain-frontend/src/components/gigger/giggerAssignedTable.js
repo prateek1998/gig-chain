@@ -4,7 +4,7 @@ import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { assignedGiggerHeader } from "../../constants/allocation";
 import EditUserModal from "../modal/editUserModal";
-import Notify from "../react-toast";
+import Notify from "../toaster/react-toast";
 import { assignUsersToGig } from "../../services/apiCalls";
 
 const GiggerAssignedTable = ({ selectedGig, handleSelected, setfilteredUser }) => {

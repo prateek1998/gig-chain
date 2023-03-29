@@ -1,5 +1,5 @@
 import React from "react";
-import Notify from "../react-toast";
+import Notify from "../toaster/react-toast";
 import { updateUserDetails } from "../../services/apiCalls";
 
 const EditUserModal = ({ userData, setUserData, closeModal, handleUpdate }) => {
