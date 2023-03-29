@@ -7,3 +7,11 @@ export const tableHeader = [
     '#giggers Assigned',
     'Status',
 ];
+
+export const assignedGiggerHeader = [
+    'gigger Id',
+    'gigger Name',
+    'status',
+    'Action',
+    'Action Type'
+]

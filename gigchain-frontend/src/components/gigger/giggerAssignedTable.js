@@ -20,7 +20,7 @@ const GiggerAssignedTable = ({ selectedGig, handleSelected, setfilteredUser }) =
     setIsEditOpen(true)
   }
   const handleDelete = data => {
-    let filteredUser = assignedUser.filter(item => item.giggerId !=data.giggerId)
+    let filteredUser = assignedUser.filter(item => item.giggerId !== data.giggerId)
     assignUsersToGig(selectedGig.gigId, filteredUser).then(
       (gigs) => {
         if (gigs.success) {
@@ -38,7 +38,7 @@ const GiggerAssignedTable = ({ selectedGig, handleSelected, setfilteredUser }) =
   }
 
   const handleUpdate = (data) => {
-    let filteredUser = assignedUser.find(item => item.giggerId ==data.giggerId)
+    let filteredUser = assignedUser.find(item => item.giggerId === data.giggerId)
     filteredUser.giggerId = data.giggerId;
     filteredUser.name =data.name;
   }
@@ -58,9 +58,6 @@ const GiggerAssignedTable = ({ selectedGig, handleSelected, setfilteredUser }) =
                   </th>
                 ))
               }
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>

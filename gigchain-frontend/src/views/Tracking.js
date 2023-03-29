@@ -37,8 +37,6 @@ const Tracking = () => {
     fetchData();
   }, []);
 
-  const handleSelected = () => {}
-
   return (
     <React.Fragment>
       <div className='flex my-3 items-center'>

@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { assignedGiggerHeader } from "../../constants/allocation";
+import { assignedGiggerHeader } from "../../constants/tracking";
 
-const GiggerTrackingTable = ({ selectedGig, handleSelected }) => {
-  const [assignedUser, setassignedUser] = useState(selectedGig.assigned)
-  
+const GiggerTrackingTable = ({ selectedGig }) => {
+  // const [selectedGig.assigned, setassignedUser] = useState(selectedGig.assigned)
   return (
     <React.Fragment>
-      {assignedUser.length
+      {selectedGig.assigned.length
         ?
         <table className="w-full text-sm text-left text-gray-500">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50">
@@ -20,14 +19,11 @@ const GiggerTrackingTable = ({ selectedGig, handleSelected }) => {
                   </th>
                 ))
               }
-              <th scope="col" className="px-6 py-3">
-                Action
-              </th>
             </tr>
           </thead>
           <tbody>
             {
-              assignedUser.map((user, index) => (
+              selectedGig.assigned.map((user, index) => (
                 <tr key={index} className="bg-white border-b hover:bg-gray-50">
                   <td className="px-6 py-4">
                     {user.giggerId}

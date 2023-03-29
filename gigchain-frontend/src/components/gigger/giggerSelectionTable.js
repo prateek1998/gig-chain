@@ -3,7 +3,7 @@ import { giggerHeader } from "../../constants/allocation";
 import { assignUsersToGig } from "../../services/apiCalls";
 import Notify from '../react-toast';
 
-const giggerSelectionTable = ({userData, gigData, filteredUser, handleSelected}) => {
+const GiggerSelectionTable = ({userData, gigData, filteredUser, handleSelected}) => {
     const [selectGig, setSelectGig] = useState(filteredUser);
 
     const handleChecked = (data) => {
@@ -97,4 +97,4 @@ const giggerSelectionTable = ({userData, gigData, filteredUser, handleSelected})
     )
 }
 
-export default giggerSelectionTable;
+export default GiggerSelectionTable;

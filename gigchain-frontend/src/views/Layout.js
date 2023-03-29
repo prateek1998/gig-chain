@@ -9,14 +9,13 @@ const Layout = () => {
     <>
       <div className="flex">
         <div
-          className={` ${open ? "w-72" : "w-20 "
+          className={`"w-72"
             } bg-dark-purple h-screen p-5  pt-8 relative duration-300`}
         >
           <div className="flex gap-x-4 items-center">
             <AiOutlineBulb size={"3rem"} color='white' />
             <p
-              className={`text-white origin-left font-medium text-3xl duration-200 ${!open && "scale-0"
-                }`}
+              className={`text-white origin-left font-medium text-3xl duration-200 }`}
             >
               Gig Chain
             </p>
@@ -31,7 +30,7 @@ const Layout = () => {
                     } `}
                 >
                   {Menu.icon}
-                  <span className={`${!open && "hidden"} origin-left duration-200`}>
+                  <span className={`origin-left duration-200`}>
                     {Menu.title}
                   </span>
                 </li>
@@ -49,7 +48,7 @@ const Layout = () => {
                     } `}
                 >
                   {Menu.icon}
-                  <span className={`${!open && "hidden"} origin-left duration-200`}>
+                  <span className={`origin-left duration-200`}>
                     {Menu.title}
                   </span>
                 </li>
@@ -73,7 +72,7 @@ const Layout = () => {
                    bg-blue-100 
                    border-gray-300 hover:text-white hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm p-10 mr-2 mb-2 focus:outline-none border 
                    
-                   ${location.pathname == "/" + item.url && "text-white bg-blue-800"}`}>
+                   ${location.pathname === "/" + item.url && "text-white bg-blue-800"}`}>
                     <div>
                       {item.icon}
                     </div>
