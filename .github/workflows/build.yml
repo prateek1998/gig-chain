@@ -37,6 +37,7 @@ jobs:
           npm install
           rm -rf build
           npm run build
+          cd ..
           git add build -f
           git commit -m "build files from github action"
           git push -u origin main

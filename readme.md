@@ -1,7 +1,5 @@
 Assignment for experienced FullStack (MERN Stack) Developer role
 
-
-
 Please have a look at the below Figma design. This is the UI/UX design of an Admin Console. Look at the screens below the "Final 2" title label.
 https://www.figma.com/file/GvwlxMsbNOGuP9sV5sHNvJ/Gig-Chain?node-id=723-2051&t=RJ5JUTnUciauoPgI-0
 
