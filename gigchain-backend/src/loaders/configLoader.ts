@@ -13,7 +13,7 @@ class Config {
   static readonly ORIGIN = process.env.ORIGIN;
   static readonly CREDENTIALS = true;
   static readonly DB = {
-    DB_URL: `mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`,
+    DB_URL: process.env.DB_URL || ` mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`,
     options: {
       useNewUrlParser: true,
       useUnifiedTopology: true,
