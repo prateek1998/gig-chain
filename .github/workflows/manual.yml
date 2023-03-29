@@ -33,6 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: setup deployment
         run: |
+          cd gigchain-frontend/
           npm install
           rm -rf build
           npm run build
