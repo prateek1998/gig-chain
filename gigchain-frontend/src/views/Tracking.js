@@ -7,7 +7,6 @@ import { getAllGigs } from '../services/apiCalls';
 import { tableHeader } from '../constants/tracking';
 import GiggerAssignedTrackingTable from '../components/tracking/GiggerAssignedTrackingTable';
 import GiggerAllocatedTrackingTable from '../components/tracking/GiggerAllocatedTrackingTable';
-import GoogleMapReact from 'google-map-react';
 
 const Tracking = () => {
   const [tableData, setTableData] = useState(null)

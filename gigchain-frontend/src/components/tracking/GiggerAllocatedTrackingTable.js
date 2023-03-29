@@ -24,7 +24,7 @@ const GiggerAllocatedTrackingTable = ({ selectedGig }) => {
           <tbody>
             {
               selectedGig.assigned.map((user, index) => (
-                <tr key={index} className={`border-b ${index == 2 ? 'bg-green-400 ': 'bg-white hover:bg-gray-100' }`} >
+                <tr key={index} className={`border-b ${index === 2 ? 'bg-green-400 ': 'bg-white hover:bg-gray-100' }`} >
                   <td className="px-6 py-4">
                     {user.giggerId}
                   </td>
