@@ -1,5 +1,5 @@
 import React from "react";
-import { assignedGiggerTrackingHeader } from "../../constants/tracking";
+import { assignedGiggerTrackingHeader } from "../../constants/Tracking";
 
 const GiggerAssignedTrackingTable = ({ selectedGig }) => {
   // const [selectedGig.assigned, setassignedUser] = useState(selectedGig.assigned)

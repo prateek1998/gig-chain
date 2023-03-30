@@ -15,7 +15,12 @@ const GigSchema = new Schema({
         type: String
     },
     location: {
-        type: String
+        long: {
+            type: String
+        },
+        lat: {
+            type: String
+        }
     },
     status: {
         type: String,

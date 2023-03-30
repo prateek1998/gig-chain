@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import MyModal from "../modal/modal";
+import MyModal from "../modal/Modal";
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { assignedGiggerHeader } from "../../constants/allocation";
-import EditUserModal from "../modal/editUserModal";
-import Notify from "../toaster/react-toast";
-import { assignUsersToGig } from "../../services/apiCalls";
+import { assignedGiggerHeader } from "../../constants/Allocation";
+import EditUserModal from "../modal/EditUserModal";
+import Notify from "../toaster/ReactToast";
+import { assignUsersToGig } from "../../services/ApiCalls";
 
 const GiggerAssignedTable = ({ selectedGig, handleSelected, setfilteredUser }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);

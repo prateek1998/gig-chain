@@ -1,5 +1,5 @@
 import React from "react";
-import { topMenus, bottomMenus, linkMenu } from "../constants/sidebar";
+import { topMenus, bottomMenus, linkMenu } from "../constants/Sidebar";
 import { Link, useLocation, Outlet } from "react-router-dom";
 import { AiOutlineBulb } from 'react-icons/ai'
 

@@ -1,10 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { GoLinkExternal } from 'react-icons/go'
-import { tableHeader } from '../constants/allocation';
-import MyModal from '../components/modal/modal';
-import { getAllGigs, getAllGigUsers } from '../services/apiCalls'
-import GiggerTable from '../components/gigger/giggerSelectionTable';
-import GiggerAssignedTable from '../components/gigger/giggerAssignedTable';
+import { tableHeader } from '../constants/Allocation';
+import MyModal from '../components/modal/Modal';
+import { getAllGigs, getAllGigUsers } from '../services/ApiCalls'
+import GiggerTable from '../components/gigger/GiggerSelectionTable';
+import GiggerAssignedTable from '../components/gigger/GiggerAssignedTable';
 
 const Allocation = () => {
   const [tableData, setTableData] = useState(null)
@@ -115,7 +115,7 @@ const Allocation = () => {
                           {item.attendance ? item.attendance : '--'}
                         </td>
                         <td className="px-6 py-4">
-                          {item.location ? item.location : '--'}
+                          {item.location ? `lat: ${item.location.lat}, long: ${item.location.long} ` : '--'}
                         </td>
                         <td className="px-6 py-4">
                           <div className='flex items-center'>

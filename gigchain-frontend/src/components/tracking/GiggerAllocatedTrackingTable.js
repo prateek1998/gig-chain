@@ -1,7 +1,7 @@
 import React from "react";
 import { AiFillEdit } from 'react-icons/ai';
 import { RiDeleteBin5Line } from 'react-icons/ri';
-import { assignedGiggerHeader, assignedActionType } from "../../constants/tracking";
+import { assignedGiggerHeader, assignedActionType } from "../../constants/Tracking";
 
 const GiggerAllocatedTrackingTable = ({ selectedGig }) => {
   // const [selectedGig.assigned, setassignedUser] = useState(selectedGig.assigned)
