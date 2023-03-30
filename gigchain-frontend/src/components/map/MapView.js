@@ -75,7 +75,7 @@ const MapView = ({ open, closeModal, title, subTitle, gigs }) => {
                       </div >
                       <div className='w-4/6 ml-6 rounded' >
                         <GoogleMapReact
-                           bootstrapURLKeys={{ key: process.env.MAP_API }}
+                           bootstrapURLKeys={{ key: process.env.NODE_ENV === 'production' ? process.env.MAP_API : 'map api key' }}
                           defaultCenter={defaultProps.center}
                           defaultZoom={defaultProps.zoom}
                         >
