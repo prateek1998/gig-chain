@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { GoLocation } from 'react-icons/go'
 import { GoLinkExternal } from 'react-icons/go'
 import { Link } from 'react-router-dom';
+import { CirclesWithBar } from 'react-loader-spinner';
 import MyModal from '../components/modal/Modal';
 import { getAllGigs } from '../services/ApiCalls';
 import { tableHeader } from '../constants/Tracking';
@@ -11,6 +12,7 @@ import MapView from '../components/map/MapView';
 
 const Tracking = () => {
   const [tableData, setTableData] = useState(null)
+  const [loading, setLoading] = useState(false);
   const [isGigAllocatedOpen, setIsGigAllocatedOpen] = useState(false);
   const [isMapViewOpen, setIsMapViewOpen] = useState(false);
   const [isGigAssignOpen, setIsGigAssignOpen] = useState(false);
@@ -41,14 +43,17 @@ const Tracking = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       getAllGigs().then(
         (gigs) => {
           if (gigs.success) {
-            setTableData(gigs.data)
+            setTableData(gigs.data);
+            setLoading(false);
           }
         },
         (error) => {
           console.log(error);
+          setLoading(false);
         }
       );
     };
@@ -73,8 +78,8 @@ const Tracking = () => {
         1023 unallocated Open Gigs in the system
       </p>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        {
-          tableData ?
+        {!loading &&
+          tableData &&
             <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
@@ -150,8 +155,26 @@ const Tracking = () => {
                 }
               </tbody>
             </table>
-            : <p className='text-xl'> No Data found</p>
-        }
+          } 
+           {!loading && !tableData &&
+            <p className='text-xl'> No Data found</p>
+          }
+          {loading &&
+            <div className='flex justify-center'>
+              <CirclesWithBar
+                height="100"
+                width="100"
+                color="#1e40af"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+                outerCircleColor=""
+                innerCircleColor=""
+                barColor=""
+                ariaLabel='circles-with-bar-loading'
+              />
+            </div>
+          }
       </div>
       <MyModal
         open={isGigAllocatedOpen}
